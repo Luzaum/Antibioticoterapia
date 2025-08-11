@@ -1,0 +1,6 @@
+{
+  "name": "Antibioticoterapia",
+  "description": "A clinical guide for antibiotic use in veterinary medicine, featuring a drug guide with a dose calculator, a patient-based recommendation flow, and CSV data import capabilities.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
