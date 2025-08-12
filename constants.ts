@@ -561,10 +561,10 @@ export const DZ_EXPLAIN: { [key: string]: DiseaseExplanation } = {
     adjuncts: "Desbridamento de tecidos desvitalizados e controle de comorbidades."
   },
   "Piodermite Superficial": {
-    physio: "Infecção da epiderme e folículos pilosos, geralmente por **[color:green-700]Staphylococcus pseudintermedius[/color]**.",
-    why: "Antibiótico sistêmico tópico ou oral. Cefalexina é a primeira linha para cães e gatos. Doses maiores são usadas em infecções profundas.",
-    signs: "Pápulas, pústulas, colaretes epidérmicos. A **[bg:yellow-100]citologia[/bg]** orienta o diagnóstico (cocos e neutrófilos).",
-    adjuncts: "Banhos antissépticos e tratamento da causa de base (alergia, parasitas)."
+    physio: "Barreira cutânea íntegra + microbiota residente controlada pelo manto lipídico e imunidade inata. Quebra da barreira (alergia, endocrinopatia) → supercrescimento de **[color:green-700]Staphylococcus pseudintermedius[/color]** e inflamação folicular.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h (cão) ou 15-25 mg/kg VO q8-12h (gato) e Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h (cão) ou 12,5-20 mg/kg VO q12h (gato) oferecem boa cobertura. Cefpodoxima 5-10 mg/kg VO q24h e Clindamicina 5,5-10 mg/kg VO q12h são alternativas.",
+    signs: "Pápulas, pústulas, crostas, prurido. **[bg:yellow-100]Citologia por fita/acetato (neutrófilos + cocos)[/bg]** confirma infecção. Pesquisar doença de base (atopia, pulgas, endócrino).",
+    adjuncts: "Banhos de clorexidina 2-4% 2-3x/sem, controle do prurido, controle de pulgas, dieta/atopia. Duração: 14-21 dias (tratar até cura clínica + ~7 dias). Cultura se recidiva/falha."
   },
   "Piotórax": {
     physio: "Exsudato purulento no espaço pleural, muito comum em gatos. Infecção polimicrobiana, incluindo **[color:purple-700]anaeróbios[/color]**. Pode ser causado por feridas penetrantes, abscessos pulmonares ou corpos estranhos.",
@@ -656,6 +656,73 @@ export const DZ_EXPLAIN: { [key: string]: DiseaseExplanation } = {
     signs: "Dor, calor, 'cordão' venoso palpável, secreção no sítio do cateter, febre.",
     adjuncts: "Compressas mornas, analgesia, novos acessos em local distinto. A prevenção é feita com protocolos de manutenção de cateter."
   },
+  "Piodermite Profunda / Furunculose": {
+    physio: "Folículo íntegro profundo com boa perfusão dérmica. Ruptura folicular → reação piogranulomatosa + bactérias profundas. **[color:green-700]S. pseudintermedius[/color]** e Gram− oportunistas (Pseudomonas/Proteus).",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h ou Amoxi/Clav 12,5-25 mg/kg q12h (cão); Amoxi/Clav 12,5-20 mg/kg q12h (gato). Considerar Marbo 2,75-5,5 mg/kg q24h se bastonetes. Clindamicina 5,5-10 mg/kg q12h e Cefpodoxima 5-10 mg/kg q24h (cão) são alternativas.",
+    signs: "Fístulas, nódulos, drenagem, dor. **[bg:yellow-100]Citologia (cocos ± bastonetes)[/bg]**. Cultura + MIC sempre que possível.",
+    adjuncts: "Banhos antissépticos, bandagem almofadada conforme lesão. Duração: 6-8 (até 10-12) semanas; +2 semanas após cura clínica. Cultura/MIC em todos os casos profundos."
+  },
+  "Abscesso por Mordedura": {
+    physio: "Pele íntegra, microbiota oral e cutânea isoladas. Inoculação de flora oral + anaeróbios em bolsão subcutâneo hipóxico. Anaeróbios (Bacteroides, Fusobacterium), Pasteurella multocida (gatos), Streptococcus, Staphylococcus, Enterobactérias.",
+    why: "Ampicilina/Sulbactam 22-30 mg/kg IV q6-8h → Amoxi/Clav 12,5-25 mg/kg VO q12h (cão); Amoxi/Clav 12,5-20 mg/kg VO q12h (gato). Adicionar Metronidazol 10-15 mg/kg q12h se odor fétido/necrose.",
+    signs: "Dor, edema, febre, secreção purulenta. **[bg:yellow-100]Exploração e drenagem (padrão-ouro)[/bg]**. Citologia (bacilos/cocos), cultura aeróbios/anaeróbios.",
+    adjuncts: "Drenagem ampla, curativos por fases, analgesia. Duração: 7-14 dias após drenagem adequada. ATB cobre anaeróbios."
+  },
+  "Celulite Bacteriana (não necrosante)": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Eritema, edema, dor, febre. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Otite Externa Bacteriana (moderada/grave)": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Dor, secreção, odor. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Otite Média/Interna Bacteriana": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Dor, secreção, alterações neurológicas. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Pneumonia Bacteriana (Comunitária)": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Tosse, febre, dispneia. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Pneumonia Aspirativa com Sobreinfecção Bacteriana": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Tosse, febre, dispneia. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Cistite Bacteriana Esporádica (não complicada)": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Poliúria, polidipsia, disúria. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "ITU Recorrente/Complicada": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Poliúria, polidipsia, disúria. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Pielonefrite Bacteriana": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Poliúria, polidipsia, disúria, febre. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+  "Prostatite Bacteriana / Abscesso Prostático": {
+    physio: "Desbalanço das defesas locais → colonização, invasão e inflamação; risco de biofilme/anaerobiose dependendo do sítio. Patógenos típicos do sítio.",
+    why: "Esquema 1ª linha conforme sítio (ex.: Amoxi/Clav 12,5-25 mg/kg q12h; alternativas conforme patógeno e MIC). Fluoroquinolona quando Gram− e sensibilidade, Clindamicina para Gram+ sensíveis, Metronidazol para anaeróbios.",
+    signs: "Dor pélvica, disúria, febre. **[bg:yellow-100]Exame dirigido + cultura/MIC[/bg]** quando possível. Imagem conforme necessidade.",
+    adjuncts: "Controle de foco (drenagem/cirurgia), suporte, higiene/curativos, fisioterapia quando indicado. Duração: conforme sítio: curto (3-5 d) até prolongado (6-8 sem)."
+  },
+
   "Tularemia (Francisella tularensis)": {
     physio: "Zoonose grave transmitida por carrapatos ou contato com animais infectados.",
     why: "Tratamento rápido com aminoglicosídeos, doxiciclina ou fluoroquinolonas, conforme a gravidade e epidemiologia.",
@@ -1068,7 +1135,21 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Gamitromic': 'Gamitromicina',
   'Tulat': 'Tulatromicina',
   'Tulatromic': 'Tulatromicina',
-  'Tacrol': 'Tacrolimus'
+  'Tacrol': 'Tacrolimus',
+  // Aliases adicionais para resolver problemas de normalização
+  'amoxi + clav': 'Amoxicilina + Clavulanato',
+  'amoxi clav': 'Amoxicilina + Clavulanato',
+  'amox clav': 'Amoxicilina + Clavulanato',
+  'ampi + sulba': 'Ampicilina + Sulbactam',
+  'ampi sulba': 'Ampicilina + Sulbactam',
+  'pip + tazo': 'Piperacilina + Tazobactam (IV)',
+  'pip tazo': 'Piperacilina + Tazobactam (IV)',
+  'trimetoprim + sulfa': 'Trimetoprim + Sulfa',
+  'trimetoprim sulfa': 'Trimetoprim + Sulfa',
+  'tmp + sulfa': 'Trimetoprim + Sulfa',
+  'tmp sulfa': 'Trimetoprim + Sulfa',
+  'tms + sulfa': 'Trimetoprim + Sulfa',
+  'tms sulfa': 'Trimetoprim + Sulfa'
 };
 
 export const DISEASE_ALIASES: { [key: string]: string } = {
