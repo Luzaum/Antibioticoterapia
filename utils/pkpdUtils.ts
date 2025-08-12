@@ -17,6 +17,7 @@ export function pkpdForClass(cls: string): PkPdInfo {
   if (s.includes('glicopeptideo')) return { pd: 'concentração‑dependente', hydro: 'hidrofílico', elim: 'renal', moa: 'Inibe síntese da parede celular (liga-se a D-Ala-D-Ala).' };
   if (s.includes('rifamicina')) return { pd: 'concentração‑dependente', hydro: 'lipofílico', elim: 'hepática/biliar', moa: 'Inibe RNA polimerase → bloqueia transcrição.' };
   if (s.includes('fosfonato')) return { pd: 'concentração‑dependente', hydro: 'hidrofílico', elim: 'renal', moa: 'Inibe 1ª etapa da síntese da parede celular (enzima MurA).' };
+  if (s.includes('imunossupressor')) return { pd: '—', hydro: '—', elim: '—', moa: 'Imunossupressor - não é antibiótico.' };
   return { pd: '—', hydro: '—', elim: '—', moa: '—' };
 }
 
@@ -36,6 +37,7 @@ export function subclassFor(drugName: string, cls: string): string {
   if (lowerCls.includes('glicopeptideo')) return 'glicopeptideo';
   if (lowerCls.includes('rifamicina')) return 'rifamicina';
   if (lowerCls.includes('fosfonato')) return 'fosfonato';
+  if (lowerCls.includes('imunossupressor')) return 'imunossupressor';
   if (lowerCls.includes('β')) {
     if (n.startsWith('cef') || n.includes('podox')) return 'cefalosporina';
     return 'penicilina';

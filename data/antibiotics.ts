@@ -299,6 +299,19 @@ export const AB_SEED: AntibioticClass = {
   ],
   "Aminoglicosídeos": [
     {
+      name: "Tobramicina",
+      spectrum: "Ativo contra Gram-negativos (Pseudomonas aeruginosa, E. coli, Klebsiella, Proteus). Sinergia com beta-lactâmicos contra Pseudomonas.",
+      dose_dog: "Tópico ocular: 0,3% q6–8h. Sistêmico: 2–4 mg/kg IV/IM q8h",
+      dose_cat: "Tópico ocular: 0,3% q6–8h. Sistêmico: 2–4 mg/kg IV/IM q8h",
+      indications: "Tópico: Conjuntivite bacteriana, ceratite ulcerativa. Sistêmico: Infecções graves por Gram-negativos (reservado para casos graves).",
+      cautions: "NEFROTÓXICO e OTOTÓXICO. Monitorar função renal. Usar com cautela em pacientes com insuficiência renal.",
+      mechanism: "Bactericida. Inibe a síntese proteica ligando-se à subunidade 30S do ribossomo.",
+      prep_admin: "Tópico: Gotas ou pomada oftálmica. Sistêmico: Solução injetável.",
+      duration: "Tópico: 7–10 dias. Sistêmico: 5–7 dias (reavaliar função renal).",
+      contraindications: "Insuficiência renal grave. Hipersensibilidade.",
+      adverse_effects: "Nefrotoxicidade, ototoxicidade, bloqueio neuromuscular."
+    },
+    {
       name: "Amicacina (parenteral)",
       spectrum: "Potente contra bactérias Gram-negativas, incluindo Pseudomonas. Mais estável que a gentamicina contra enzimas inativadoras.",
       dose_dog: "15 mg/kg IV/IM q24h",
@@ -459,6 +472,34 @@ export const AB_SEED: AntibioticClass = {
       duration: "Curso de vários dias, conforme prescrito.",
       contraindications: "GATOS (toxicidade fatal). Hipersensibilidade.",
       adverse_effects: "Em cães: diarreia, diminuição do apetite, vómito."
+    }
+  ],
+  "Imunossupressores": [
+    {
+      name: "Ciclosporina",
+      spectrum: "Imunossupressor. Não é antibiótico, mas usado para tratar doenças imunomediadas.",
+      dose_dog: "5–10 mg/kg VO q12h",
+      dose_cat: "5–10 mg/kg VO q12h",
+      indications: "Dermatite atópica, pênfigo foliáceo, outras doenças imunomediadas.",
+      cautions: "Imunossupressor. Monitorar função renal e hepática. Interações medicamentosas.",
+      mechanism: "Inibe a calcineurina, bloqueando a ativação de linfócitos T.",
+      prep_admin: "Cápsulas ou solução oral.",
+      duration: "Longo prazo, conforme necessário.",
+      contraindications: "Infecções ativas. Neoplasias.",
+      adverse_effects: "Nefrotoxicidade, hepatotoxicidade, hipertensão, gengivite."
+    },
+    {
+      name: "Tacrolimus",
+      spectrum: "Imunossupressor. Não é antibiótico, mas usado para tratar doenças imunomediadas.",
+      dose_dog: "0,1 mg/kg VO q12h",
+      dose_cat: "0,1 mg/kg VO q12h",
+      indications: "Dermatite atópica, ceratoconjuntivite seca.",
+      cautions: "Imunossupressor. Monitorar função renal e hepática.",
+      mechanism: "Inibe a calcineurina, bloqueando a ativação de linfócitos T.",
+      prep_admin: "Comprimidos ou pomada tópica.",
+      duration: "Longo prazo, conforme necessário.",
+      contraindications: "Infecções ativas. Neoplasias.",
+      adverse_effects: "Nefrotoxicidade, hepatotoxicidade, distúrbios GI."
     }
   ]
 };
