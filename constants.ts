@@ -98,6 +98,102 @@ export const DZ_EXPLAIN: { [key: string]: DiseaseExplanation } = {
     signs: "Tosse crônica 'seca/estridente', com ou sem bronquiectasias na imagem. O **[bg:yellow-100]lavado traqueal para citologia/cultura[/bg]** direciona a terapia.",
     adjuncts: "Nebulização e coupage. Broncodilatadores em caso de hiper-reatividade. Antibióticos apenas com evidência de infecção (cultura positiva)."
   },
+  "Demodicose com Sobreinfecção Bacteriana (Foliculite/Furunculose)": {
+    physio: "Proliferação excessiva do ácaro Demodex spp. (normalmente presente em pequenas quantidades) causa ruptura folicular e permite colonização bacteriana secundária. A imunossupressão (juvenil, endócrina, iatrogênica) é o fator predisponente principal.",
+    why: "O tratamento acaricida (isoxazolinas) é essencial para resolver a causa primária. Antibióticos tratam a sobreinfecção bacteriana, mas não curam a demodicose. A escolha deve cobrir Staphylococcus spp. e, em casos profundos, Gram-negativos.",
+    signs: "Alopecia multifocal, pápulas/pústulas, comedões, fístulas com exsudato purulento, odor fétido. **[bg:yellow-100]Raspados profundos positivos para Demodex[/bg]** confirmam o diagnóstico. Citologia mostra neutrófilos e bactérias.",
+    adjuncts: "Tratamento acaricida até 2 raspados negativos mensais. Banhos de clorexidina 2-4%. Investigar e tratar comorbidades (hipotireoidismo, hiperadrenocorticismo). Evitar quinolonas empíricas sem evidência de bastonetes."
+  },
+  "Furunculose Pós-Banho (Post-grooming Furunculosis)": {
+    physio: "Infecção cutânea profunda aguda causada por Pseudomonas aeruginosa contaminando produtos de grooming ou água. O trauma da tosa facilita a penetração bacteriana, resultando em foliculite/furunculose rapidamente progressiva.",
+    why: "Pseudomonas aeruginosa é resistente a beta-lactâmicos simples. Quinolonas (marbofloxacina, enrofloxacina) são a primeira escolha. Piperacilina/tazobactam para casos graves hospitalizados.",
+    signs: "Início súbito 24-48h pós-banho, dor intensa dorsal, pústulas/pápulas, tractos drenantes, febre, letargia. **[bg:yellow-100]Citologia mostra bastonetes Gram-negativos[/bg]**. Cultura e MIC são essenciais.",
+    adjuncts: "Coletar cultura ANTES de iniciar antibiótico. Banhos antissépticos suaves, analgesia/opioides conforme dor. Evitar cefalexina/amoxi-clav como monoterapia empírica (ineficazes vs Pseudomonas)."
+  },
+  "Foliculite por Pseudomonas Pós-Natação ('Hot-tub')": {
+    physio: "Exposição a água contaminada por Pseudomonas aeruginosa (piscinas, banheiras, lagos) causa foliculite superficial a profunda. O microambiente úmido e o trauma da natação facilitam a colonização bacteriana.",
+    why: "Pseudomonas aeruginosa é resistente a beta-lactâmicos simples. Marbofloxacina é a primeira escolha. Ajustar por MIC quando possível.",
+    signs: "Pápulas pustulosas dorsais, prurido/dor variável, possível febre em casos extensos. **[bg:yellow-100]Citologia mostra bastonetes Gram-negativos[/bg]**. Cultura/MIC confirma a sensibilidade.",
+    adjuncts: "Suspender natação até cura completa. Antissépticos tópicos. Evitar beta-lactâmicos simples empíricos."
+  },
+  "Celulite Pré‑septal (Palpebral) Bacteriana": {
+    physio: "Infecção tecidual anterior ao septo orbital (pálpebras), distinta da celulite orbital. Causada por trauma, mordeduras, ou extensão de infecções locais. A barreira do septo orbital previne extensão para o espaço retrobulbar.",
+    why: "Amoxicilina/clavulanato oferece boa cobertura para Staphylococcus spp. e Streptococcus spp. Cefalexina é alternativa eficaz. A cobertura para anaeróbios raramente é necessária.",
+    signs: "Edema/dor palpebral, eritema, sem proptose ou dor ocular intensa. **[bg:yellow-100]Citologia/aspirado[/bg]** confirma infecção bacteriana. Descartar abscesso orbital.",
+    adjuncts: "Compressas mornas, antibióticos tópicos se blefarite associada. Monitorar sinais de extensão orbital (proptose, oftalmoplegia, dor ocular intensa)."
+  },
+  "Infecção de Cateter Venoso Periférico (phlebitis séptica)": {
+    physio: "Colonização bacteriana do sítio e/ou lúmen de cateter periférico com inflamação local e bacteremia ocasional. Staphylococcus spp. são os patógenos mais comuns, seguidos por enterobactérias. A técnica asséptica inadequada e tempo prolongado de cateterização são fatores de risco.",
+    why: "Remoção imediata do cateter é essencial. Antibióticos sistêmicos são indicados apenas se houver celulite extensa ou sinais sistêmicos. Amoxicilina/clavulanato oferece boa cobertura empírica.",
+    signs: "Eritema, edema, dor no sítio do cateter, febre, leucocitose. **[bg:yellow-100]Cultura da ponta do cateter[/bg]** e hemoculturas se febre/bacteremia. Avaliar extensão por ultrassom.",
+    adjuncts: "Remover cateter imediatamente, inserir novo em local distinto sob técnica asséptica rigorosa. Compressas mornas, curativos estéreis. Monitorar sinais de tromboflebite ou extensão."
+  },
+  "Infecção de Cateter Venoso Central (CVC)": {
+    physio: "Infecção do lúmen/sítio de CVC com risco de bacteremia e fungemia. Staphylococcus spp. (coagulase-positivos e negativos) são os patógenos mais comuns. Enterobactérias e Pseudomonas podem ocorrer em infecções hospitalares. A colonização do hub do cateter é a via mais comum.",
+    why: "Ampicilina/sulbactam oferece cobertura para Staphylococcus spp. e enterobactérias. Marbofloxacina adiciona cobertura para Pseudomonas. A escolha deve ser guiada por cultura e sensibilidade.",
+    signs: "Febre, calafrios, sinais de sepse. **[bg:yellow-100]Hemoculturas[/bg]** e cultura da ponta após retirada. Ultrassom para avaliar trombose associada.",
+    adjuncts: "Remoção do CVC, novo acesso em local distinto. Terapia prolongada (10-14d para bacteremia, 4-6 semanas se endocardite). Monitorar função renal com aminoglicosídeos."
+  },
+  "Bacteremia Relacionada a Cateter (CRBSI)": {
+    physio: "Hemocultura positiva associada a infecção de cateter. Staphylococcus spp. são os patógenos mais comuns. O risco de endocardite é significativo, especialmente com Staphylococcus aureus. A colonização do cateter pode persistir mesmo após remoção.",
+    why: "Terapia empírica de amplo espectro até identificação do patógeno. Ampicilina/sulbactam + marbofloxacina oferece boa cobertura inicial. Desescalar baseado em cultura e sensibilidade.",
+    signs: "Febre, calafrios, sinais de sepse. **[bg:yellow-100]≥2 hemoculturas[/bg]** positivas. Ecocardiograma se sopro ou septicemia persistente.",
+    adjuncts: "Remover fonte (cateter) imediatamente. Suporte hemodinâmico se necessário. Monitorar sinais de endocardite ou metástases sépticas."
+  },
+  "SSI após Enterotomia/Gastrotomia": {
+    physio: "Infecção de incisão abdominal após enterotomia/gastrotomia devido à contaminação fecal/estomacal. Enterobactérias, anaeróbios e Enterococcus spp. são os patógenos mais comuns. A técnica cirúrgica inadequada e tempo prolongado de cirurgia são fatores de risco.",
+    why: "Ampicilina/sulbactam oferece cobertura para enterobactérias e anaeróbios. Metronidazol adiciona cobertura anaeróbia robusta. Step-down para amoxicilina/clavulanato quando clinicamente estável.",
+    signs: "Eritema, edema, dor na incisão, febre, leucocitose. **[bg:yellow-100]Cultura de secreção[/bg]** e ultrassom para avaliar coleções. Avaliar deiscência.",
+    adjuncts: "Drenagem/desbridamento se coleção. Suporte nutricional. Monitorar sinais de peritonite ou sepse."
+  },
+  "Piometra de Coto Uterino (Stump Pyometra)": {
+    physio: "Infecção purulenta do coto uterino após ovariohisterectomia por exposição residual a progesterona ou tecido remanescente. E. coli é o patógeno mais comum. O tecido endometrial remanescente pode responder a progesterona endógena ou exógena.",
+    why: "Ampicilina/sulbactam oferece boa cobertura para E. coli e outras enterobactérias. Step-down para amoxicilina/clavulanato quando clinicamente estável. A remoção cirúrgica do coto é curativa.",
+    signs: "Corrimento vaginal, letargia, polidipsia/poliúria, dor abdominal. **[bg:yellow-100]Ultrassom mostra coto distendido[/bg]**, hemograma com leucocitose. Cultura uterina intraoperatória.",
+    adjuncts: "Reoperação para remoção do coto e ovários remanescentes. Suporte hemodinâmico. Investigar fonte de progesterona (ovários ectópicos, terapia hormonal)."
+  },
+  "Abscesso Retrofaringeo": {
+    physio: "Coleção purulenta nos espaços retrofaríngeos, geralmente causada por corpo estranho oral, trauma por 'graveto' ou extensão de infecção dentária. A flora orofaríngea mista (aeróbios e anaeróbios) é inoculada, resultando em abscesso que pode comprometer a via aérea.",
+    why: "Ampicilina/sulbactam oferece cobertura para flora orofaríngea mista e anaeróbios. Metronidazol adiciona cobertura anaeróbia se houver odor fétido ou necrose. Step-down para amoxicilina/clavulanato quando clinicamente estável.",
+    signs: "Dor cervical, sialorreia, disfagia, febre, estridor em casos graves. **[bg:yellow-100]Ultrassom/TC cervical[/bg]** mostra coleção. Aspiração para citologia e cultura aeróbios/anaeróbios.",
+    adjuncts: "Drenagem cirúrgica/escareação é essencial. Analgesia, suporte de via aérea se necessário. Monitorar sinais de extensão para mediastino."
+  },
+  "Traqueíte Pós‑Intubação com Sobreinfecção Bacteriana": {
+    physio: "Inflamação da traqueia após intubação endotraqueal com colonização bacteriana secundária. O trauma da intubação e a presença do tubo endotraqueal comprometem a defesa mucociliar, permitindo colonização por Staphylococcus spp., enterobactérias e Pseudomonas em ambiente hospitalar.",
+    why: "Amoxicilina/clavulanato oferece boa cobertura para Staphylococcus spp. e enterobactérias. Marbofloxacina é indicada se houver suspeita de Gram-negativos nosocomiais. A escolha deve ser guiada por cultura.",
+    signs: "Tosse áspera pós-operatória, secreção traqueal purulenta, febre em casos graves. **[bg:yellow-100]Endoscopia/LBA[/bg]** para citologia e cultura. Radiografia torácica se pneumonia.",
+    adjuncts: "Nebulização e fisioterapia respiratória. Controle da dor/antitussígenos quando indicado. Monitorar sinais de pneumonia ou sepse."
+  },
+  "Pneumonia Bacteriana Nosocomial": {
+    physio: "Infecção pulmonar adquirida no hospital (pós-cirúrgica, ventilação mecânica). Pseudomonas aeruginosa, enterobactérias (E. coli, Klebsiella) e Staphylococcus aureus/MRSP são os patógenos mais comuns. A intubação endotraqueal e ventilação mecânica comprometem as defesas pulmonares.",
+    why: "Piperacilina/tazobactam oferece cobertura para Pseudomonas aeruginosa e enterobactérias. Amicacina adiciona cobertura para Gram-negativos resistentes. A escolha deve ser guiada por cultura e MIC.",
+    signs: "Febre, taquipneia, tosse, hipoxemia. **[bg:yellow-100]Radiografia/TC[/bg]** mostra infiltrados. LBA protegido para cultura/MIC (padrão ouro).",
+    adjuncts: "Ventilação protetora, fisioterapia, manejo de secreções. Monitorar função renal com aminoglicosídeos. Desescalar baseado em cultura e sensibilidade."
+  },
+  "Pneumonia por Pseudomonas em Paciente Ventilado": {
+    physio: "Infecção por Pseudomonas aeruginosa em paciente sob ventilação mecânica. Alto risco de resistência devido à exposição prévia a antibióticos e ambiente hospitalar. Pseudomonas aeruginosa pode formar biofilmes no tubo endotraqueal.",
+    why: "Piperacilina/tazobactam + amicacina oferece cobertura para Pseudomonas aeruginosa. Desescalar baseado em MIC. Marbofloxacina pode ser considerada se sensível e via oral viável.",
+    signs: "Febre, taquipneia, hipoxemia, secreção traqueal purulenta. **[bg:yellow-100]LBA protegido[/bg]** com cultura/MIC confirma o diagnóstico.",
+    adjuncts: "Aspiração traqueal/broncoscopia terapêutica. Suporte ventilatório. Monitorar sinais de sepse ou falha terapêutica."
+  },
+  "Pneumonia por Corpo Estranho Aspirado": {
+    physio: "Broncopneumonia secundária à aspiração de corpo estranho vegetal/partículas. A presença do corpo estranho compromete a defesa pulmonar e permite colonização bacteriana. Flora mista (aeróbios e anaeróbios) é comum.",
+    why: "Ampicilina/sulbactam oferece cobertura para flora mista e anaeróbios. Metronidazol adiciona cobertura anaeróbia. Step-down para amoxicilina/clavulanato quando clinicamente estável.",
+    signs: "Tosse, febre, taquipneia. **[bg:yellow-100]Radiografia/TC[/bg]** pode mostrar o corpo estranho. Broncoscopia para remoção e LBA/cultura.",
+    adjuncts: "Remoção do corpo estranho é essencial. Fisioterapia respiratória. Monitorar sinais de abscesso pulmonar ou empiema."
+  },
+  "ITU Complicada Associada a Diabetes Mellitus": {
+    physio: "Infecção urinária com hiperglicemia e glicosúria favorecendo crescimento bacteriano. A glicosúria fornece substrato para bactérias, enquanto a imunossupressão do diabetes compromete as defesas. E. coli, Klebsiella spp. e Staphylococcus spp. são os patógenos mais comuns.",
+    why: "Amoxicilina/clavulanato oferece boa cobertura para enterobactérias e Staphylococcus spp. A escolha deve ser guiada por cultura e sensibilidade. O controle glicêmico é essencial.",
+    signs: "Poliúria, polidipsia, disúria, febre. **[bg:yellow-100]Urocultura por cistocentese[/bg]** confirma infecção. Controle glicêmico concomitante.",
+    adjuncts: "Controle do diabetes mellitus é essencial. Hidratação adequada. Monitorar função renal. Investigar complicações do diabetes."
+  },
+  "Sepse Bacteriana Neonatal (Cães e Gatos)": {
+    physio: "Bacteremia/septicemia em neonatos por falha de transferência de imunidade, contaminação umbilical ou mamária. O sistema imunológico imaturo e a falha na transferência passiva de anticorpos via colostro predispõem à infecção. E. coli, Streptococcus spp. e Staphylococcus spp. são os patógenos mais comuns.",
+    why: "Ampicilina + amicacina oferece cobertura para enterobactérias e cocos Gram-positivos. A dose deve ser ajustada para a função renal imatura. Cautela com aminoglicosídeos.",
+    signs: "Hipotermia, hipoglicemia, letargia, recusa alimentar, febre ou hipotermia. **[bg:yellow-100]Hemocultura[/bg]** confirma bacteremia. Avaliar foco (onfalite, pneumonia).",
+    adjuncts: "Suporte térmico e glicêmico essenciais. Fluidoterapia cuidadosa. Nutrição enteral/parenteral. Tratar falha de transferência passiva."
+  },
   "Bronquite Parasitária (Sobreinfecção Bacteriana)": {
     physio: "Parasitas (ex: Angiostrongylus vasorum) lesam a mucosa respiratória e comprometem a defesa mucociliar, permitindo infecção bacteriana secundária.",
     why: "É necessário tratar o parasita e a pneumonia bacteriana associada, quando presente.",
@@ -872,7 +968,107 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Gamitromicina (Tópico)': 'Gamitromicina',
   'Tulatromicina': 'Tulatromicina',
   'Tulatromicina (Tópico)': 'Tulatromicina',
-  'Tacrolimus': 'Tacrolimus'
+  'Tacrolimus': 'Tacrolimus',
+  // Aliases adicionais para melhorar associação (apenas os que não existem)
+  'Amox+Clav': 'Amoxicilina + Clavulanato',
+  'Amoxi Clav': 'Amoxicilina + Clavulanato',
+  'Ampi': 'Ampicilina (IV)',
+  'Ampi+Sulba': 'Ampicilina + Sulbactam',
+  'Ampi Sulba': 'Ampicilina + Sulbactam',
+  'Pip+Tazo': 'Piperacilina + Tazobactam (IV)',
+  'Pip Tazo': 'Piperacilina + Tazobactam (IV)',
+  'Marboflox': 'Marbofloxacina',
+  'Enro': 'Enrofloxacina',
+  'Enroflox': 'Enrofloxacina',
+  'Doxicic': 'Doxiciclina',
+  'Clinda': 'Clindamicina',
+  'Clindamic': 'Clindamicina',
+  'Metro': 'Metronidazol',
+  'Metronid': 'Metronidazol',
+  'Azitro': 'Azitromicina',
+  'Azitromic': 'Azitromicina',
+  'Cefalex': 'Cefalexina',
+  'Cefpodo': 'Cefpodoxima',
+  'Cefpodox': 'Cefpodoxima',
+  'Cefaz': 'Cefazolina (IV)',
+  'Ceftriax': 'Ceftriaxona (IV)',
+  'Tobra': 'Tobramicina',
+  'Tobramic': 'Tobramicina',
+  'Cloram': 'Cloranfenicol',
+  'Cloranfen': 'Cloranfenicol',
+  'Tilos': 'Tilosina',
+  'Oxitetra': 'Oxitetraciclina',
+  'Oxitetracic': 'Oxitetraciclina',
+  'Prado': 'Pradofloxacina',
+  'Pradoflox': 'Pradofloxacina',
+  'Minocic': 'Minociclina',
+  'Claritro': 'Claritromicina',
+  'Claritromic': 'Claritromicina',
+  'Tetra': 'Tetraciclina',
+  'Tetracic': 'Tetraciclina',
+  'Pen G': 'Penicilina G',
+  'Mero': 'Meropenem',
+  'Meropen': 'Meropenem',
+  'Imipenem': 'Imipenem-Cilastatina',
+  'Cefox': 'Cefoxitina',
+  'Amica': 'Amicacina',
+  'Amicac': 'Amicacina',
+  'Gent': 'Gentamicina (parenteral)',
+  'Gentamic': 'Gentamicina (parenteral)',
+  'Estrepto': 'Estreptomicina',
+  'Estreptomic': 'Estreptomicina',
+  'Neo': 'Neomicina',
+  'Neomic': 'Neomicina',
+  'Atova': 'Atovaquona',
+  'Atovaqu': 'Atovaquona',
+  'Pirimet': 'Pirimetamina',
+  'Pirimetam': 'Pirimetamina',
+  'Decoqui': 'Decoquinato',
+  'Decoquin': 'Decoquinato',
+  'Ome': 'Omeprazol',
+  'Omepra': 'Omeprazol',
+  'Ciclo': 'Ciclosporina',
+  'Ciclospor': 'Ciclosporina',
+  'Rifam': 'Rifampicina',
+  'Rifampic': 'Rifampicina',
+  'Fosfo': 'Fosfomicina',
+  'Fosfomic': 'Fosfomicina',
+  'Vanco': 'Vancomicina',
+  'Vancomic': 'Vancomicina',
+  'Teico': 'Teicoplanina',
+  'Teicoplan': 'Teicoplanina',
+  'Linez': 'Linezolida',
+  'Linezol': 'Linezolida',
+  'Dapto': 'Daptomicina',
+  'Daptomic': 'Daptomicina',
+  'Tige': 'Tigeciclina',
+  'Tigecic': 'Tigeciclina',
+  'Colist': 'Colistina',
+  'Polimix': 'Polimixina B',
+  'Bacitrac': 'Bacitracina',
+  'Fusídico': 'Ácido Fusídico',
+  'Oflox': 'Ofloxacina',
+  'Ofloxac': 'Ofloxacina',
+  'Ciproflox': 'Ciprofloxacina',
+  'Norflox': 'Norfloxacina',
+  'Norfloxac': 'Norfloxacina',
+  'Levoflox': 'Levofloxacina',
+  'Levofloxac': 'Levofloxacina',
+  'Moxiflox': 'Moxifloxacina',
+  'Moxifloxac': 'Moxifloxacina',
+  'Eritro': 'Eritromicina',
+  'Eritromic': 'Eritromicina',
+  'Roxitro': 'Roxitromicina',
+  'Roxitromic': 'Roxitromicina',
+  'Espira': 'Espiramicina',
+  'Espiramic': 'Espiramicina',
+  'Tilmi': 'Tilmicosina',
+  'Tilmic': 'Tilmicosina',
+  'Gamitro': 'Gamitromicina',
+  'Gamitromic': 'Gamitromicina',
+  'Tulat': 'Tulatromicina',
+  'Tulatromic': 'Tulatromicina',
+  'Tacrol': 'Tacrolimus'
 };
 
 export const DISEASE_ALIASES: { [key: string]: string } = {
