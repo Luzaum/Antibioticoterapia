@@ -656,6 +656,66 @@ export const DZ_EXPLAIN: { [key: string]: DiseaseExplanation } = {
     signs: "Dor, calor, 'cordão' venoso palpável, secreção no sítio do cateter, febre.",
     adjuncts: "Compressas mornas, analgesia, novos acessos em local distinto. A prevenção é feita com protocolos de manutenção de cateter."
   },
+  "Intertrigo Mamário (Dobra Mamária) – Infectado": {
+    physio: "Dermatite de dobras mamárias com microambiente úmido e hipóxico que favorece o crescimento de **[color:green-700]Staphylococcus pseudintermedius[/color]**, Gram-negativos e anaeróbios. Comum em cadelas com múltiplas gestações e dobras mamárias proeminentes.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h por 14-21d ou Amoxi/Clav 12,5-25 mg/kg VO q12h por 14-21d oferecem boa cobertura para cocos Gram+ e Gram-. Higiene local é fundamental.",
+    signs: "Eritema, odor, secreção nas dobras mamárias. **[bg:yellow-100]Citologia (neutrófilos + cocos/bastonetes)[/bg]** confirma infecção. Cultura se recidiva.",
+    adjuncts: "Higiene local com clorexidina 2-4%, secagem adequada, antissépticos tópicos. Perda de peso se necessário. Duração: 14-21d (tratar até cura clínica + ~7 dias)."
+  },
+  "Dermatite de Dobras (Intertrigo) - Expandida": {
+    physio: "Microambiente úmido e hipóxico favorece cocos e anaeróbios. Quebra da barreira cutânea por umidade excessiva, trauma ou obesidade. **[color:green-700]Staphylococcus pseudintermedius[/color]**, Gram-negativos oportunistas e Anaeróbios (Bacteroides, Fusobacterium).",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h por 14-21d ou Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h. Cefpodoxima 5-10 mg/kg VO q24h e Clindamicina 5,5-10 mg/kg VO q12h são alternativas.",
+    signs: "Eritema, odor, secreção nas dobras. **[bg:yellow-100]Citologia (neutrófilos + cocos/bastonetes)[/bg]** confirma infecção. Cultura se recidiva.",
+    adjuncts: "Priorizar terapia tópica e higiene; sistêmico se foliculite/celulite/recorrência. Duração: Superficiais: 14-21d; profundas: 3-4 sem (tratar até resolução clínica +1-2 sem conforme profundidade)."
+  },
+  "Dermatite Piotraumática (Hot Spot) - Expandida": {
+    physio: "Lesão aguda por autotrauma que pode progredir para foliculite/celulite. Quebra da barreira cutânea por trauma mecânico (lambedura, coçadura) com colonização bacteriana secundária. **[color:green-700]Staphylococcus pseudintermedius[/color]** e Gram-negativos oportunistas.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h ou Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h. Antibiótico sistêmico só se a infecção for além da superfície.",
+    signs: "Lesão aguda, úmida, dolorosa, com bordas bem definidas. **[bg:yellow-100]Citologia (neutrófilos + cocos)[/bg]** confirma infecção.",
+    adjuncts: "Tratar fator primário para evitar recidiva. Duração: 10-14d se superficial; se evoluir para profunda, seguir esquema de 3-4 sem."
+  },
+  "Acne Felina com Sobreinfecção Bacteriana": {
+    physio: "Disfunção folicular no mento com risco de foliculite/furunculose secundária. Alteração da queratinização folicular com obstrução e colonização bacteriana. **[color:green-700]Staphylococcus spp.[/color]** e Gram-negativos oportunistas.",
+    why: "Clindamicina 5,5-10 mg/kg VO q12h por 14d ou Amoxicilina/Clavulanato 12,5-20 mg/kg VO q12h por 14d. Tópicos antibacterianos como 1ª linha; sistêmicos apenas em moderada-grave.",
+    signs: "Pápulas, pústulas, crostas no mento. **[bg:yellow-100]Citologia (neutrófilos + cocos)[/bg]** confirma infecção.",
+    adjuncts: "Higiene do queixo, antissépticos (clorexidina), trocar comedouro. Duração: Reavaliar em 14d; prolongar se deep."
+  },
+  "Pododermatite Bacteriana / Furunculose Interdigital": {
+    physio: "Ruptura folicular com reação piogranulomatosa e infecção profunda; pode haver corpo estranho (awns). Trauma repetitivo ou corpo estranho migratório. **[color:green-700]Staphylococcus pseudintermedius[/color]** e Gram-negativos (Pseudomonas/Proteus).",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h ou Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h. Marbofloxacina 2,75-5,5 mg/kg q24h (cão); 2-5 mg/kg q24h (gato) se bastonetes.",
+    signs: "Nódulos, fístulas, dor interdigital. **[bg:yellow-100]Citologia (cocos ± bastonetes)[/bg]**. Cultura + MIC sempre que possível.",
+    adjuncts: "Tópicos antissépticos, bandagem almofadada, analgesia, remover corpo estranho, tratar comorbidades. Duração: Deep: 6-8 (até 12) semanas; +2 semanas após cura clínica."
+  },
+  "Paroníquia / Onicite Bacteriana": {
+    physio: "Infecção do leito ungueal após avulsão/trauma. Quebra da barreira cutânea periungueal com colonização bacteriana. **[color:green-700]Staphylococcus pseudintermedius[/color]** e Gram− oportunistas.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h ou Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h. Clindamicina 5,5-10 mg/kg q12h ou Marbofloxacina se bastonetes/documentação.",
+    signs: "Dor, edema, secreção periungueal. **[bg:yellow-100]Citologia/cultura[/bg]**, RX se osteíte distal.",
+    adjuncts: "Limpeza/antissépticos, analgesia, desbridamento/onychectomia em crônicos dolorosos. Duração: 6-8 semanas; +2 semanas após cura clínica."
+  },
+  "Lesão por Lambedura (Lick Granuloma) Infectada": {
+    physio: "Lesão autoinfligida crônica que frequentemente evolui para foliculite/furunculose. Trauma repetitivo com quebra da barreira cutânea e colonização bacteriana. **[color:green-700]Staphylococcus pseudintermedius[/color]** e Gram-negativos oportunistas.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h, Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h ou Clindamicina 5,5-10 mg/kg q12h. Guiado por cultura; esquemas de pele profunda.",
+    signs: "Nódulo firme, ulcerado, com bordas elevadas. **[bg:yellow-100]Citologia (neutrófilos + cocos/bastonetes)[/bg]** confirma infecção.",
+    adjuncts: "Controle de dor/ansiedade, colar elizabetano, terapia comportamental. Duração: Superficial: 3-4 semanas +1 semana após cura clínica; Deep: ≥6-8 semanas +2 semanas após cura clínica."
+  },
+  "Blefarite Bacteriana / Hordeolo (terçol) / Meibomite": {
+    physio: "Inflamação/infeção das pálpebras (margem palpebral/folículos/Glândulas de Meibômio). Obstrução das glândulas de Meibômio com colonização bacteriana. **[color:green-700]Staphylococcus pseudintermedius[/color]**, Streptococcus canis, Gram-negativos oportunistas (casos crônicos).",
+    why: "Tobramicina 0,3% 1 gota/pomada q6-8h por 7-10d ou Cloranfenicol 0,5% q6-8h por 7-10d. Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h por 10-14d ou Cefalexina 22-30 mg/kg VO q8-12h por 10-14d se sistêmico necessário.",
+    signs: "Eritema, edema palpebral, secreção. **[bg:yellow-100]Exame oftálmico completo[/bg]** (STT, fluoresceína) é mandatório.",
+    adjuncts: "Compressas mornas e higiene palpebral, remoção de cílio distíquio/corpo estranho se presente. Duração: 7-10d tópico; 10-14d sistêmico se necessário."
+  },
+  "Impetigo do Filhote (Pustulose Juvenil) – com sobreinfecção": {
+    physio: "Piodermite superficial de filhotes, geralmente não pruriginosa no início; pode complicar e exigir antibiótico sistêmico. Imaturidade do sistema imune e barreira cutânea. **[color:green-700]Staphylococcus pseudintermedius[/color]**.",
+    why: "Cefalexina 22-30 mg/kg VO q8-12h por 14-21d ou Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h por 14-21d. Clindamicina 5,5-10 mg/kg VO q12h ou Cefpodoxima 5-10 mg/kg VO q24h (cães) são alternativas.",
+    signs: "Pústulas superficiais, crostas, geralmente não pruriginosas. **[bg:yellow-100]Citologia (neutrófilos + cocos)[/bg]** confirma infecção.",
+    adjuncts: "Banhos antissépticos (clorexidina 2-4%) 2-3x/semana, controle de umidade e higiene do ambiente. Duração: 14-21d."
+  },
+  "Foliculite Mucocutânea (lábios, plano nasal, mucosas) – infectada": {
+    physio: "Inflamação crônica em junções mucocutâneas com sobreinfecção bacteriana secundária. Quebra da barreira cutânea em áreas de transição mucosa-pele. **[color:green-700]Staphylococcus pseudintermedius[/color]** e Anaeróbios locais (quando odor fétido).",
+    why: "Amoxicilina/Clavulanato 12,5-25 mg/kg VO q12h por 3-4 sem. Cefalexina 22-30 mg/kg (cão) / 15-25 mg/kg (gato) VO q8-12h, Clindamicina 5,5-10 mg/kg VO q12h ou Metronidazol 10-15 mg/kg VO q12h são alternativas.",
+    signs: "Eritema, crostas, ulcerações nas junções mucocutâneas. **[bg:yellow-100]Citologia (neutrófilos + cocos/bastonetes)[/bg]** confirma infecção.",
+    adjuncts: "Higiene oral, tópicos antissépticos labiais, controlar alergia primária. Duração: 3-4 sem."
+  },
   "Piodermite Profunda / Furunculose": {
     physio: "Folículo íntegro profundo com boa perfusão dérmica. Ruptura folicular → reação piogranulomatosa + bactérias profundas. **[color:green-700]S. pseudintermedius[/color]** e Gram− oportunistas (Pseudomonas/Proteus).",
     why: "Cefalexina 22-30 mg/kg VO q8-12h ou Amoxi/Clav 12,5-25 mg/kg q12h (cão); Amoxi/Clav 12,5-20 mg/kg q12h (gato). Considerar Marbo 2,75-5,5 mg/kg q24h se bastonetes. Clindamicina 5,5-10 mg/kg q12h e Cefpodoxima 5-10 mg/kg q24h (cão) são alternativas.",
@@ -1149,7 +1209,14 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'tmp + sulfa': 'Trimetoprim + Sulfa',
   'tmp sulfa': 'Trimetoprim + Sulfa',
   'tms + sulfa': 'Trimetoprim + Sulfa',
-  'tms sulfa': 'Trimetoprim + Sulfa'
+  'tms sulfa': 'Trimetoprim + Sulfa',
+  // Aliases para nomes normalizados com doses
+  'cefalexina': 'Cefalexina',
+  'clindamicina': 'Clindamicina',
+  'marbofloxacina': 'Marbofloxacina',
+  'enrofloxacina': 'Enrofloxacina',
+  'doxiciclina': 'Doxiciclina',
+  'metronidazol': 'Metronidazol'
 };
 
 export const DISEASE_ALIASES: { [key: string]: string } = {
