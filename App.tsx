@@ -1,145 +1,130 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { AB_SEED } from './data/antibiotics';
-import { DZ_SEED } from './data/diseases';
-import { dedupeABDict, dedupeDZDict } from './utils/dataUtils';
-import { canonicalDrugName, canonicalDiseaseName } from './utils/textUtils';
-import { parseCSV } from './utils/csvParser';
-import Home from './pages/Home';
-import AntibioticsGuide from './pages/AntibioticsGuide';
-import PatientGuide from './pages/PatientGuide';
-import { Page, AntibioticClass, DiseaseSystem, Species, LifeStageKey, ComorbidityState, Disease } from './types';
+import React from 'react'
+import { PillIcon, StethoscopeIcon } from 'lucide-react'
 
-const selfTests = () => {
-  try {
-    console.group('[self-tests]');
-    console.assert(canonicalDrugName('Pip/Tazo') === 'piperacilina + tazobactam', 'Alias Pip/Tazo');
-    console.assert(canonicalDrugName('Amoxi-Clav') === 'amoxicilina + clavulanato', 'Alias Amoxi-Clav');
-    const dup = { 'β-Lactâmicos': [{ name: 'Amoxi-Clav', dose_dog: '10 mg/kg', dose_cat: '10 mg/kg', spectrum: '', indications: '', cautions: '' }] };
-    const merged = dedupeABDict({ ...AB_SEED, ...dup });
-    const count = Object.values(merged).flat().filter(d => canonicalDrugName(d.name) === 'amoxicilina + clavulanato').length;
-    console.assert(count === 1, 'Dedupe AB deve unir aliases');
+// Array of pill colors with actual color values instead of Tailwind classes
+const pillColors = [
+  {
+    primary: '#3B82F6',
+    secondary: 'white',
+  },
+  {
+    primary: '#FBBF24',
+    secondary: 'white',
+  },
+  {
+    primary: '#10B981',
+    secondary: 'white',
+  },
+  {
+    primary: '#EF4444',
+    secondary: 'white',
+  },
+  {
+    primary: '#8B5CF6',
+    secondary: 'white',
+  },
+  {
+    primary: '#000000',
+    secondary: 'white',
+  }, // black
+]
 
-    const d1 = { 'Trato Respiratório': [{ name: 'piotorax', first_line: ['Amoxi-Clav'], alternatives: [], pathogens: '', duration: '', notes: '' }] };
-    const mergedDz = dedupeDZDict({ ...DZ_SEED, ...d1 });
-    const dzCount = Object.values(mergedDz).flat().filter(d => canonicalDiseaseName(d.name) === 'piotorax').length;
-    console.assert(dzCount === 1, 'Dedupe DZ deve unir aliases');
-    
-    const csv = '\uFEFFa,b\n"x,1",y\n';
-    const rows = parseCSV(csv);
-    console.assert(rows.length === 2 && rows[0].length === 2 && rows[1][0] === 'x,1', 'parseCSV com BOM e vírgulas');
-    
-    console.groupEnd();
-  } catch (e) {
-    console.warn('self-tests falharam:', e);
-  }
-};
-
-const App: React.FC = () => {
-  const [page, setPage] = useState<Page>('home');
-  const [abDict, setAbDict] = useState<AntibioticClass>(() => dedupeABDict(AB_SEED));
-  const [dzDict, setDzDict] = useState<DiseaseSystem>(() => dedupeDZDict(DZ_SEED));
-  const [focusDrug, setFocusDrug] = useState<string | null>(null);
-  const [sourcePage, setSourcePage] = useState<Page | null>(null);
-
-  // Lifted state from PatientGuide
-  const [patientStep, setPatientStep] = useState(1);
-  const [patientSpecies, setPatientSpecies] = useState<Species | null>(null);
-  const [patientLife, setPatientLife] = useState<LifeStageKey | null>(null);
-  const [patientCo, setPatientCo] = useState<ComorbidityState>({ renal: false, hepatic: false, septic: false, cardiac: false });
-  const [patientChosen, setPatientChosen] = useState<Disease | null>(null);
-
-  useEffect(() => {
-    selfTests();
-  }, []);
-
-  const resetPatientGuide = useCallback(() => {
-    setPatientStep(1);
-    setPatientSpecies(null);
-    setPatientLife(null);
-    setPatientCo({ renal: false, hepatic: false, septic: false, cardiac: false });
-    setPatientChosen(null);
-  }, []);
-
-  const handleSetPage = useCallback((newPage: Page) => {
-    if (page === 'ab' && newPage !== 'ab') {
-      setFocusDrug(null);
-      setSourcePage(null);
-    }
-    // Reset patient guide state when navigating back to home
-    if (page === 'paciente' && newPage === 'home') {
-      resetPatientGuide();
-    }
-    setPage(newPage);
-  }, [page, resetPatientGuide]);
-
-  const deepLink = useCallback((drugName: string) => {
-    setFocusDrug(drugName);
-    setSourcePage('paciente');
-    setPage('ab');
-  }, []);
-
-  const mergeAB = useCallback((incoming: AntibioticClass) => {
-    setAbDict(prevDict => {
-        const next = { ...prevDict };
-        for (const cls of Object.keys(incoming || {})) {
-            next[cls] = [...(next[cls] || []), ...(incoming[cls] || [])];
-        }
-        return dedupeABDict(next);
-    });
-  }, []);
-
-  const mergeDZ = useCallback((incoming: DiseaseSystem) => {
-    setDzDict(prevDict => {
-        const next = { ...prevDict };
-        for (const sys of Object.keys(incoming || {})) {
-            next[sys] = [...(next[sys] || []), ...(incoming[sys] || [])];
-        }
-        return dedupeDZDict(next);
-    });
-  }, []);
-
-  const renderPage = () => {
-    switch (page) {
-      case 'ab':
-        return <AntibioticsGuide setPage={handleSetPage} abDict={abDict} focusDrug={focusDrug} sourcePage={sourcePage} />;
-      case 'paciente':
-        return <PatientGuide
-                  setPage={handleSetPage}
-                  dzDict={dzDict}
-                  abDict={abDict}
-                  onDeepLinkDrug={deepLink}
-                  onReset={resetPatientGuide}
-                  step={patientStep}
-                  setStep={setPatientStep}
-                  species={patientSpecies}
-                  setSpecies={setPatientSpecies}
-                  life={patientLife}
-                  setLife={setPatientLife}
-                  co={patientCo}
-                  setCo={setPatientCo}
-                  chosen={patientChosen}
-                  setChosen={setPatientChosen}
-                />;
-      case 'home':
-      default:
-        return <Home setPage={handleSetPage} onMergeAB={mergeAB} onMergeDZ={mergeDZ} />;
-    }
-  };
-
+export function App() {
   return (
-    <div className="font-sans bg-slate-50">
-      <style>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.4s ease-out forwards;
-        }
-      `}</style>
-      {renderPage()}
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+      {/* Background Pills Pattern */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{
+          zIndex: 0,
+        }}
+      >
+        {/* Generate 30 random pills with different colors and positions */}
+        {Array.from({
+          length: 30,
+        }).map((_, index) => {
+          const color =
+            pillColors[Math.floor(Math.random() * pillColors.length)]
+          const rotation = Math.floor(Math.random() * 360)
+          const top = Math.floor(Math.random() * 100)
+          const left = Math.floor(Math.random() * 100)
+          const opacity = Math.random() * 0.2 + 0.05 // Between 0.05 and 0.25
+          const scale = 0.5 + Math.random() * 1.5 // Between 0.5 and 2
+          return (
+            <div
+              key={index}
+              className="absolute"
+              style={{
+                top: `${top}%`,
+                left: `${left}%`,
+                transform: `rotate(${rotation}deg) scale(${scale})`,
+                opacity: opacity,
+              }}
+            >
+              <svg
+                width="60"
+                height="24"
+                viewBox="0 0 60 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24H48C54.627 24 60 18.627 60 12C60 5.373 54.627 0 48 0H12Z"
+                  fill={color.primary}
+                />
+                <path
+                  d="M30 0H12C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24H30V0Z"
+                  fill={color.secondary}
+                />
+              </svg>
+            </div>
+          )
+        })}
+      </div>
+      {/* Main Content - with higher z-index to appear above the pattern */}
+      <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-3">
+            Antibioticoterapia
+          </h1>
+          <p className="text-blue-700 text-lg">
+            Guia clínico de antibióticos e condições para medicina veterinária.
+          </p>
+        </header>
+        {/* Main Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-white text-center">
+            <div className="flex justify-center mb-4">
+              <div className="p-4 bg-white/20 rounded-full">
+                <PillIcon size={32} />
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold mb-3">Guia de Antibióticos</h2>
+            <p className="opacity-90">
+              Consulte fármacos, espectro, e use a calculadora de dose.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-white text-center">
+            <div className="flex justify-center mb-4">
+              <div className="p-4 bg-white/20 rounded-full">
+                <StethoscopeIcon size={32} />
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold mb-3">Guia por Paciente</h2>
+            <p className="opacity-90">
+              Receba recomendações baseadas no paciente e condição.
+            </p>
+          </div>
+        </div>
+        {/* Footer */}
+        <footer className="text-center text-gray-500 text-sm mt-12">
+          <p>
+            Ferramenta educacional. Para uso clínico: baseie-se em
+            cultura/antibiograma e consensos atualizados.
+          </p>
+        </footer>
+      </div>
     </div>
-  );
-};
-
-export default App;
+  )
+}
