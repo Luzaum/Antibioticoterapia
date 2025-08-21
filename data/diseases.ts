@@ -293,4 +293,4 @@ export const DZ_SEED: DiseaseSystem = {
   ]
 };
 
-export const diseases = DZ_SEED;
+
