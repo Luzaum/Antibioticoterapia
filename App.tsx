@@ -1,5 +1,10 @@
-import React from 'react'
-import { PillIcon, StethoscopeIcon } from 'lucide-react'
+import React, { useState } from 'react';
+import Home from './pages/Home';
+import AntibioticsGuide from './pages/AntibioticsGuide';
+import PatientGuide from './pages/PatientGuide';
+import { Page, AntibioticClass, DiseaseSystem } from './types';
+import { antibiotics } from './data/antibiotics';
+import { diseases } from './data/diseases';
 
 // Array of pill colors with actual color values instead of Tailwind classes
 const pillColors = [
@@ -30,8 +35,34 @@ const pillColors = [
 ]
 
 export function App() {
+  const [page, setPage] = useState<Page>('home');
+  const [abDict, setAbDict] = useState<AntibioticClass>(antibiotics);
+  const [dzDict, setDzDict] = useState<DiseaseSystem>(diseases);
+  const [focusDrug, setFocusDrug] = useState<string | null>(null);
+  const [sourcePage, setSourcePage] = useState<Page | null>(null);
+
+  const onMergeAB = (data: AntibioticClass) => {
+    setAbDict(data);
+  };
+
+  const onMergeDZ = (data: DiseaseSystem) => {
+    setDzDict(data);
+  };
+
+  const onDeepLinkDrug = (drugName: string) => {
+    setFocusDrug(drugName);
+    setSourcePage(page);
+    setPage('ab');
+  };
+
+  const onReset = () => {
+    setPage('home');
+    setFocusDrug(null);
+    setSourcePage(null);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 relative overflow-hidden">
       {/* Background Pills Pattern */}
       <div
         className="absolute inset-0 overflow-hidden"
@@ -81,50 +112,34 @@ export function App() {
           )
         })}
       </div>
+      
       {/* Main Content - with higher z-index to appear above the pattern */}
-      <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
-        {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-3">
-            Antibioticoterapia
-          </h1>
-          <p className="text-blue-700 text-lg">
-            Guia clínico de antibióticos e condições para medicina veterinária.
-          </p>
-        </header>
-        {/* Main Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-white text-center">
-            <div className="flex justify-center mb-4">
-              <div className="p-4 bg-white/20 rounded-full">
-                <PillIcon size={32} />
-              </div>
-            </div>
-            <h2 className="text-2xl font-bold mb-3">Guia de Antibióticos</h2>
-            <p className="opacity-90">
-              Consulte fármacos, espectro, e use a calculadora de dose.
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-white text-center">
-            <div className="flex justify-center mb-4">
-              <div className="p-4 bg-white/20 rounded-full">
-                <StethoscopeIcon size={32} />
-              </div>
-            </div>
-            <h2 className="text-2xl font-bold mb-3">Guia por Paciente</h2>
-            <p className="opacity-90">
-              Receba recomendações baseadas no paciente e condição.
-            </p>
-          </div>
-        </div>
-        {/* Footer */}
-        <footer className="text-center text-gray-500 text-sm mt-12">
-          <p>
-            Ferramenta educacional. Para uso clínico: baseie-se em
-            cultura/antibiograma e consensos atualizados.
-          </p>
-        </footer>
+      <div className="relative z-10">
+        {page === 'home' && (
+          <Home 
+            setPage={setPage} 
+            onMergeAB={onMergeAB} 
+            onMergeDZ={onMergeDZ} 
+          />
+        )}
+        {page === 'ab' && (
+          <AntibioticsGuide 
+            setPage={setPage} 
+            abDict={abDict} 
+            focusDrug={focusDrug}
+            sourcePage={sourcePage}
+          />
+        )}
+        {page === 'paciente' && (
+          <PatientGuide 
+            setPage={setPage} 
+            dzDict={dzDict} 
+            abDict={abDict}
+            onDeepLinkDrug={onDeepLinkDrug}
+            onReset={onReset}
+          />
+        )}
       </div>
     </div>
-  )
+  );
 }
