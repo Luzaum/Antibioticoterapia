@@ -292,3 +292,5 @@ export const DZ_SEED: DiseaseSystem = {
     { name: "Pneumonia Bacteriana Neonatal", pathogens: "E. coli, Streptococcus spp., Staphylococcus spp.", first_line: ["Ampicilina 20–30 mg/kg IV/IM q6–8h + Amikacina 10–15 mg/kg q24–48h; ajustar"], alternatives: [], duration: "Variável", notes: "Infecção pulmonar em neonatos por aspiração/contaminação periparto. RX torácico, hemocultura se possível. Oxigenioterapia, nebulização, suporte nutricional." }
   ]
 };
+
+export const diseases = DZ_SEED;

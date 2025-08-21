@@ -503,3 +503,5 @@ export const AB_SEED: AntibioticClass = {
     }
   ]
 };
+
+export const antibiotics = AB_SEED;
