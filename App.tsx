@@ -6,34 +6,9 @@ import { Page, AntibioticClass, DiseaseSystem, Species, LifeStageKey, Disease, C
 import { AB_SEED as antibiotics } from './data/antibiotics';
 import { DZ_SEED as diseases } from './data/diseases';
 import { PillIcon, StethoscopeIcon } from 'lucide-react';
+import AnimatedBackground from './components/AnimatedBackground';
 
-// Array of pill colors with actual color values instead of Tailwind classes
-const pillColors = [
-  {
-    primary: '#3B82F6',
-    secondary: 'white',
-  },
-  {
-    primary: '#FBBF24',
-    secondary: 'white',
-  },
-  {
-    primary: '#10B981',
-    secondary: 'white',
-  },
-  {
-    primary: '#EF4444',
-    secondary: 'white',
-  },
-  {
-    primary: '#8B5CF6',
-    secondary: 'white',
-  },
-  {
-    primary: '#000000',
-    secondary: 'white',
-  }, // black
-];
+
 
 export function App() {
   const [page, setPage] = useState<Page>('home');
@@ -117,87 +92,22 @@ export function App() {
 
   return (
     <>
-      {/* CSS para animação */}
-      <style>{`
-        @keyframes moveLeft {
-          0% {
-            transform: translateX(100vw) rotate(var(--rotation)) scale(var(--scale));
-          }
-          100% {
-            transform: translateX(-100px) rotate(var(--rotation)) scale(var(--scale));
-          }
-        }
-        .animated-pill {
-          animation: moveLeft var(--duration) linear infinite;
-        }
-      `}</style>
-      
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
-        {/* Background Pills Pattern */}
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{
-            zIndex: 0,
-          }}
-        >
-                  {/* Generate 60 random pills with different colors and positions */}
-        {Array.from({
-          length: 60,
-        }).map((_, index) => {
-            const color =
-              pillColors[Math.floor(Math.random() * pillColors.length)]
-            const rotation = Math.floor(Math.random() * 360)
-            const top = Math.floor(Math.random() * 120) - 10 // Between -10% and 110%
-            const opacity = Math.random() * 0.15 + 0.03 // Between 0.03 and 0.18
-            const scale = 0.3 + Math.random() * 1.8 // Between 0.3 and 2.1
-            const duration = 15 + Math.random() * 25 // Between 15s and 40s
-            const delay = Math.random() * 20 // Random delay up to 20s
-            
-            return (
-              <div
-                key={index}
-                className="absolute animated-pill"
-                style={{
-                  top: `${top}%`,
-                  left: '-100px',
-                  opacity: opacity,
-                  '--rotation': `${rotation}deg`,
-                  '--scale': scale,
-                  '--duration': `${duration}s`,
-                  animationDelay: `${delay}s`,
-                } as React.CSSProperties & { [key: string]: any }}
-              >
-                <svg
-                  width="60"
-                  height="24"
-                  viewBox="0 0 60 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24H48C54.627 24 60 18.627 60 12C60 5.373 54.627 0 48 0H12Z"
-                    fill={color.primary}
-                  />
-                  <path
-                    d="M30 0H12C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24H30V0Z"
-                    fill={color.secondary}
-                  />
-                </svg>
-              </div>
-            )
-          })}
-        </div>
+        {/* Animated Background */}
+        <AnimatedBackground pillCount={100} />
 
-        {/* Main Content - with higher z-index to appear above the pattern */}
+        {/* Main Content - transparent background */}
         <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
           {/* Header */}
           <header className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-3">
-              Antibioticoterapia
-            </h1>
-            <p className="text-blue-700 text-lg">
-              Guia clínico de antibióticos e condições para medicina veterinária.
-            </p>
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg inline-block">
+              <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-3">
+                Antibioticoterapia
+              </h1>
+              <p className="text-blue-700 text-lg">
+                Guia clínico de antibióticos e condições para medicina veterinária.
+              </p>
+            </div>
           </header>
 
           {/* Main Cards - Vertical Layout */}
@@ -235,10 +145,12 @@ export function App() {
 
           {/* Footer */}
           <footer className="text-center text-gray-500 text-sm mt-12">
-            <p>
-              Ferramenta educacional. Para uso clínico: baseie-se em
-              cultura/antibiograma e consensos atualizados.
-            </p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-md inline-block">
+              <p>
+                Ferramenta educacional. Para uso clínico: baseie-se em
+                cultura/antibiograma e consensos atualizados.
+              </p>
+            </div>
           </footer>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '../components/Icon';
 import Importer from '../components/Importer';
 import { Page, AntibioticClass, DiseaseSystem } from '../types';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 interface HomeProps {
   setPage: (page: Page) => void;
@@ -10,8 +11,10 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setPage, onMergeAB, onMergeDZ }) => (
-  <div className="min-h-screen bg-slate-50 p-6 animate-fade-in">
-    <header className="text-center mb-10 max-w-5xl mx-auto">
+  <div className="min-h-screen bg-slate-50 p-6 animate-fade-in relative overflow-hidden">
+    <AnimatedBackground pillCount={100} />
+    <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6">
+      <header className="text-center mb-10 max-w-5xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800">Antibioticoterapia</h1>
       <p className="text-slate-500 mt-2">Guia clínico de antibióticos e condições para medicina veterinária.</p>
     </header>
@@ -31,6 +34,7 @@ const Home: React.FC<HomeProps> = ({ setPage, onMergeAB, onMergeDZ }) => (
       <Importer onMergeAB={onMergeAB} onMergeDZ={onMergeDZ} />
     </div>
     <footer className="text-center text-xs text-slate-500 mt-12">Ferramenta educacional. Para uso clínico: baseie-se em cultura/antibiograma e consensos atualizados.</footer>
+    </div>
   </div>
 );
 

@@ -6,6 +6,7 @@ import Modal from '../components/Modal';
 import InlineDrugSummary from '../components/InlineDrugSummary';
 import { DZ_EXPLAIN, LIFE_STAGES, COMORB_HELP_TEXT } from '../constants';
 import RichTextViewer from '../components/RichTextViewer';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const comorbLabels: { [key in keyof ComorbidityState]: string } = {
   renal: 'Renal',
@@ -195,10 +196,13 @@ const PatientGuide: React.FC<PatientGuideProps> = ({
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in">
-      <button onClick={() => setPage('home')} className="mb-6 flex items-center text-slate-600 hover:text-slate-900 font-semibold"><Icon name="back" className="h-5 w-5 mr-2" />Voltar</button>
-      <h1 className="text-3xl font-extrabold text-slate-800 mb-6">Guia por Paciente</h1>
-      <div className="bg-white rounded-2xl shadow-sm p-6 max-w-4xl mx-auto">{renderStep()}</div>
+    <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in relative overflow-hidden">
+      <AnimatedBackground pillCount={100} />
+      <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6 max-w-4xl mx-auto">
+        <button onClick={() => setPage('home')} className="mb-6 flex items-center text-slate-600 hover:text-slate-900 font-semibold"><Icon name="back" className="h-5 w-5 mr-2" />Voltar</button>
+        <h1 className="text-3xl font-extrabold text-slate-800 mb-6">Guia por Paciente</h1>
+        <div className="bg-white rounded-2xl shadow-sm p-6">{renderStep()}</div>
+      </div>
       <Modal open={!!modalInfo} title={modalInfo?.title || 'Ajuda'} onClose={() => setModalInfo(null)}>
         <RichTextViewer text={modalInfo?.content || ''} />
       </Modal>

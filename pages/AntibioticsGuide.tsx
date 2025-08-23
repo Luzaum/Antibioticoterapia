@@ -3,6 +3,7 @@ import Icon from '../components/Icon';
 import DrugCard from '../components/DrugCard';
 import { Page, AntibioticClass, Antibiotic } from '../types';
 import { safeList } from '../utils/dataUtils';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 interface AntibioticsGuideProps {
   setPage: (page: Page) => void;
@@ -60,7 +61,9 @@ const AntibioticsGuide: React.FC<AntibioticsGuideProps> = ({ setPage, abDict, fo
   const backText = sourcePage === 'paciente' ? 'Voltar para Recomendações do Paciente' : 'Voltar';
 
   return (
-    <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in">
+    <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in relative overflow-hidden">
+      <AnimatedBackground pillCount={100} />
+      <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6">
       <button onClick={() => setPage(backTarget)} className="mb-6 flex items-center text-indigo-600 hover:text-indigo-800 font-semibold text-lg">
         <Icon name="back" className="h-6 w-6 mr-2" />{backText}
       </button>
@@ -93,6 +96,7 @@ const AntibioticsGuide: React.FC<AntibioticsGuideProps> = ({ setPage, abDict, fo
           </div>
         ))}
         {filtered.length === 0 && <div className="text-center text-slate-500 py-10">Nenhum antibiótico encontrado. Tente uma busca diferente.</div>}
+      </div>
       </div>
     </div>
   );
