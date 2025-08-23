@@ -37,15 +37,34 @@ O aplicativo agora apresenta um design moderno e intuitivo com:
 
 ## 📦 Instalação
 
+### Pré-requisitos
+- Node.js 18.x ou 20.x (recomendado: 20.11.0)
+- npm ou yarn
+
+### Setup
 ```bash
+# Verificar versão do Node.js
+node --version
+
 # Instalar dependências
-npm install --legacy-peer-deps
+npm install
 
 # Executar em modo desenvolvimento
 npm run dev
 
 # Build para produção
 npm run build
+```
+
+### Resolução de Problemas
+Se você encontrar erros relacionados ao Rollup ou dependências:
+```bash
+# Limpar cache e reinstalar
+rm -rf node_modules package-lock.json
+npm install
+
+# Ou usar yarn
+yarn install
 ```
 
 ## 🎯 Estrutura do Projeto
