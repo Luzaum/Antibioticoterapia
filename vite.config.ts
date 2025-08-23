@@ -19,8 +19,8 @@ export default defineConfig(({ mode }) => {
         include: ['react', 'react-dom']
       },
       build: {
+        target: 'es2015',
         rollupOptions: {
-          external: [],
           output: {
             manualChunks: {
               vendor: ['react', 'react-dom'],

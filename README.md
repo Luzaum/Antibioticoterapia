@@ -72,9 +72,10 @@ yarn install
 ### Configuração Automática
 O projeto já está configurado para deploy no Netlify com:
 
-- **Build Command:** `npm run build`
+- **Build Command:** `npm run build:netlify`
 - **Publish Directory:** `dist`
-- **Node Version:** 20.11.0 (definido no `netlify.toml`)
+- **Node Version:** 18.19.0 (definido no `netlify.toml`)
+- **Memory Limit:** 4GB (configurado para evitar problemas de build)
 
 ### Passos para Deploy:
 1. Conecte seu repositório ao Netlify
@@ -82,9 +83,9 @@ O projeto já está configurado para deploy no Netlify com:
 3. Clique em "Deploy site"
 
 ### Configurações Manuais (se necessário):
-- **Build command:** `npm run build`
+- **Build command:** `npm run build:netlify`
 - **Publish directory:** `dist`
-- **Node version:** 20.11.0
+- **Node version:** 18.19.0
 
 ### Troubleshooting Netlify:
 Se o build falhar no Netlify:
