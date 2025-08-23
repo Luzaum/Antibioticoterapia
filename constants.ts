@@ -1012,6 +1012,7 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Ampicilina/Sulbactam': 'Ampicilina + Sulbactam',
   'Ampi/Sulba': 'Ampicilina + Sulbactam',
   'Ampicilina + Sulbactam': 'Ampicilina + Sulbactam',
+  'Sulbactam': 'Ampicilina + Sulbactam',
   'Enrofloxacina': 'Enrofloxacina',
   'Marbofloxacina': 'Marbofloxacina',
   'Marbo': 'Marbofloxacina',
