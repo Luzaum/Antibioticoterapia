@@ -67,6 +67,33 @@ npm install
 yarn install
 ```
 
+## 🚀 Deploy no Netlify
+
+### Configuração Automática
+O projeto já está configurado para deploy no Netlify com:
+
+- **Build Command:** `npm run build`
+- **Publish Directory:** `dist`
+- **Node Version:** 20.11.0 (definido no `netlify.toml`)
+
+### Passos para Deploy:
+1. Conecte seu repositório ao Netlify
+2. O Netlify detectará automaticamente as configurações
+3. Clique em "Deploy site"
+
+### Configurações Manuais (se necessário):
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+- **Node version:** 20.11.0
+
+### Troubleshooting Netlify:
+Se o build falhar no Netlify:
+
+1. **Verifique os logs de build** no painel do Netlify
+2. **Teste localmente:** `npm run build`
+3. **Verifique dependências:** Certifique-se de que todas estão em `package.json`
+4. **Limpe cache:** Use "Clear cache and deploy" no Netlify
+
 ## 🎯 Estrutura do Projeto
 
 ```
