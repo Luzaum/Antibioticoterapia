@@ -94,7 +94,7 @@ export function App() {
     <>
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
         {/* Animated Background */}
-        <AnimatedBackground pillCount={100} />
+        <AnimatedBackground pillCount={150} />
 
         {/* Main Content - transparent background */}
         <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Array de cores das pílulas
 const pillColors = [
@@ -32,29 +32,125 @@ interface AnimatedBackgroundProps {
   pillCount?: number;
 }
 
-const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ pillCount = 100 }) => {
+interface Pill {
+  id: number;
+  x: number;
+  y: number;
+  delay: number;
+  duration: number;
+  color: number;
+  rotation: number;
+  opacity: number;
+  scale: number;
+}
+
+// Global state to persist across component remounts
+let globalPills: Pill[] = [];
+let isGlobalInitialized = false;
+let nextPillId = 0;
+
+const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ pillCount = 150 }) => {
+  const [pills, setPills] = useState<Pill[]>([]);
+  const animationRef = useRef<number>();
+  const lastPillTimeRef = useRef<number>(Date.now());
+
+  // Initialize or restore pill states
+  useEffect(() => {
+    if (!isGlobalInitialized) {
+      // Initialize 150 pills spread across the screen (50% increase from 100)
+      const initialPills: Pill[] = [];
+      
+      for (let i = 0; i < 150; i++) {
+        const seed1 = i * 9973;
+        const seed2 = i * 7919;
+        const seed3 = i * 6421;
+        const seed4 = i * 4801;
+        const seed5 = i * 3571;
+        
+        initialPills.push({
+          id: nextPillId++,
+          x: Math.random() * window.innerWidth, // Random X across screen
+          y: ((seed3 * 41) % 140) - 20, // Random Y
+          delay: 0, // No delay for initial pills
+          duration: ((seed2 * 61) % 54) + 13.5, // 13.5-67.5s duration (35% slower)
+          color: Math.floor((seed1 % 1000) / 1000 * pillColors.length),
+          rotation: (seed2 * 137) % 360,
+          opacity: ((seed5 * 29) % 20) / 100 + 0.05,
+          scale: ((seed1 * 47) % 20) / 10 + 0.4
+        });
+      }
+      
+      globalPills = initialPills;
+      isGlobalInitialized = true;
+    }
+    
+    setPills([...globalPills]);
+  }, [pillCount]);
+
+  // Animation loop to update positions and generate new pills
+  useEffect(() => {
+    const animate = () => {
+      const currentTime = Date.now();
+      const elapsed = (currentTime - lastPillTimeRef.current) / 1000;
+
+      setPills(prevPills => {
+        let newPills = [...prevPills];
+        
+        // Update existing pills
+        newPills = newPills.map(pill => {
+          const speed = window.innerWidth / (pill.duration * 60); // pixels per frame
+          let newX = pill.x - speed;
+          
+          // Remove pills that go off screen
+          if (newX < -100) {
+            return null;
+          }
+          
+          return { ...pill, x: newX };
+        }).filter(Boolean) as Pill[];
+        
+        // Generate new pills from the right
+        if (elapsed > 0.5) { // Generate new pill every 0.5 seconds
+          const seed1 = Math.random() * 10000;
+          const seed2 = Math.random() * 10000;
+          const seed3 = Math.random() * 10000;
+          const seed4 = Math.random() * 10000;
+          const seed5 = Math.random() * 10000;
+          
+          newPills.push({
+            id: nextPillId++,
+            x: window.innerWidth + 100, // Start from right edge
+            y: ((seed3 * 41) % 140) - 20,
+            delay: 0,
+            duration: ((seed2 * 61) % 54) + 13.5, // 13.5-67.5s duration (35% slower)
+            color: Math.floor((seed1 % 1000) / 1000 * pillColors.length),
+            rotation: (seed2 * 137) % 360,
+            opacity: ((seed5 * 29) % 20) / 100 + 0.05,
+            scale: ((seed1 * 47) % 20) / 10 + 0.4
+          });
+          
+          lastPillTimeRef.current = currentTime;
+        }
+        
+        // Update global state
+        globalPills = newPills;
+        return newPills;
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
-      {/* CSS para animação horizontal com continuidade */}
-      <style>{`
-        @keyframes moveLeft {
-          0% {
-            transform: translateX(100vw) rotate(var(--rotation)) scale(var(--scale));
-          }
-          100% {
-            transform: translateX(-100px) rotate(var(--rotation)) scale(var(--scale));
-          }
-        }
-        .animated-pill {
-          animation: moveLeft var(--duration) linear infinite;
-          animation-delay: var(--delay);
-          animation-play-state: running;
-        }
-        .animated-pill.paused {
-          animation-play-state: paused;
-        }
-      `}</style>
-      
       {/* Background Pills Pattern */}
       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"
@@ -62,39 +158,21 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ pillCount = 100
           zIndex: 0,
         }}
       >
-        {/* Generate pills with horizontal animation and better distribution */}
-        {Array.from({ length: pillCount }).map((_, index) => {
-          // Use multiple different seeds for better distribution
-          const seed1 = index * 9973;
-          const seed2 = index * 7919;
-          const seed3 = index * 6421;
-          const seed4 = index * 4801;
-          const seed5 = index * 3571;
-          
-          const color = pillColors[Math.floor((seed1 % 1000) / 1000 * pillColors.length)];
-          const rotation = (seed2 * 137) % 360;
-          // Better vertical distribution using sine wave pattern
-          const baseTop = (index / pillCount) * 100; // Distribute evenly from 0-100%
-          const variation = Math.sin(seed3 * 0.01) * 30; // Add sine wave variation
-          const top = Math.max(-10, Math.min(110, baseTop + variation)); // Between -10% and 110%
-          const opacity = ((seed4 * 29) % 15) / 100 + 0.03; // Between 0.03 and 0.18
-          const scale = ((seed5 * 47) % 18) / 10 + 0.3; // Between 0.3 and 2.1
-          const duration = ((seed1 * 61) % 25) + 15; // Between 15s and 40s
-          const delay = ((seed2 * 83) % 20); // Random delay up to 20s
+        {/* Render pills with their current positions */}
+        {pills.map((pill) => {
+          const color = pillColors[pill.color];
           
           return (
             <div
-              key={index}
-              className="absolute animated-pill"
+              key={pill.id}
+              className="absolute"
               style={{
-                top: `${top}%`,
-                left: '-100px',
-                opacity: opacity,
-                '--rotation': `${rotation}deg`,
-                '--scale': scale,
-                '--duration': `${duration}s`,
-                '--delay': `${delay}s`,
-              } as React.CSSProperties}
+                top: `${pill.y}%`,
+                left: `${pill.x}px`,
+                opacity: pill.opacity,
+                transform: `rotate(${pill.rotation}deg) scale(${pill.scale})`,
+                transition: 'transform 0.1s ease-out',
+              }}
             >
               <svg
                 width="60"

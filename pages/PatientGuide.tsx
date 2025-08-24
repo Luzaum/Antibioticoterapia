@@ -197,7 +197,7 @@ const PatientGuide: React.FC<PatientGuideProps> = ({
 
   return (
     <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in relative overflow-hidden">
-      <AnimatedBackground pillCount={100} />
+              <AnimatedBackground pillCount={150} />
       <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6 max-w-4xl mx-auto">
         <button onClick={() => setPage('home')} className="mb-6 flex items-center text-slate-600 hover:text-slate-900 font-semibold"><Icon name="back" className="h-5 w-5 mr-2" />Voltar</button>
         <h1 className="text-3xl font-extrabold text-slate-800 mb-6">Guia por Paciente</h1>

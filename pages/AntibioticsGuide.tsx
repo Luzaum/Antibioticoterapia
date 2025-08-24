@@ -62,7 +62,7 @@ const AntibioticsGuide: React.FC<AntibioticsGuideProps> = ({ setPage, abDict, fo
 
   return (
     <div className="bg-slate-50 min-h-screen p-4 md:p-8 animate-fade-in relative overflow-hidden">
-      <AnimatedBackground pillCount={100} />
+              <AnimatedBackground pillCount={150} />
       <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6">
       <button onClick={() => setPage(backTarget)} className="mb-6 flex items-center text-indigo-600 hover:text-indigo-800 font-semibold text-lg">
         <Icon name="back" className="h-6 w-6 mr-2" />{backText}

@@ -1070,6 +1070,12 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Cefovecina': 'Cefovecina (Convenia®)',
   'Convenia': 'Cefovecina (Convenia®)',
   
+  // Aliases específicos para os antibióticos mencionados
+  'Cefalexina 22–30 mg/kg VO q8–12h por 14–21d': 'Cefalexina',
+  'Amoxicilina/Clavulanato 12,5–25 mg/kg VO q12h': 'Amoxicilina + Clavulanato',
+  'Cefpodoxima 5–10 mg/kg VO q24h': 'Cefpodoxima',
+  'Clindamicina 5,5–10 mg/kg VO q12h': 'Clindamicina',
+  
   // Anfenicóis  
   'Cloranfenicol': 'Cloranfenicol',
   'Florfenicol': 'Florfenicol',

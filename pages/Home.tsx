@@ -12,7 +12,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ setPage, onMergeAB, onMergeDZ }) => (
   <div className="min-h-screen bg-slate-50 p-6 animate-fade-in relative overflow-hidden">
-    <AnimatedBackground pillCount={100} />
+            <AnimatedBackground pillCount={150} />
     <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6">
       <header className="text-center mb-10 max-w-5xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800">Antibioticoterapia</h1>
