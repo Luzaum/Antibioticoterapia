@@ -992,49 +992,96 @@ export const DZ_EXPLAIN: { [key: string]: DiseaseExplanation } = {
 };
 
 export const NAME_ALIASES: { [key: string]: string } = {
+  // Amoxicilina + Clavulanato variations
   'Amoxicilina-clavulanato': 'Amoxicilina + Clavulanato',
   'Amoxi-Clav': 'Amoxicilina + Clavulanato',
   'Amox Clav': 'Amoxicilina + Clavulanato',
   'Amoxi/Clav': 'Amoxicilina + Clavulanato',
   'Amoxicilina/Clavulanato': 'Amoxicilina + Clavulanato',
+  'Amoxicilina-Clavulanato': 'Amoxicilina + Clavulanato',
+  
+  // Beta-lactam IV drugs
   'Cefazolina': 'Cefazolina (IV)',
+  'Ampicilina': 'Ampicilina (IV)',
+  
+  // Piperacilina + Tazobactam variations
   'Piperacilina-tazobactam': 'Piperacilina + Tazobactam (IV)',
   'Piperacilina + Tazobactam': 'Piperacilina + Tazobactam (IV)',
   'Pip/Tazo': 'Piperacilina + Tazobactam (IV)',
+  'Piperacilina/Tazobactam': 'Piperacilina + Tazobactam (IV)',
+  
+  // Ticarcilina variations
   'Ticarcilina-Clavulanato': 'Ticarcilina + Clavulanato (Tópico/IV)',
+  'Ticarcilina/Clavulanato': 'Ticarcilina + Clavulanato (Tópico/IV)',
+  
+  // Fluoroquinolonas abbreviations
   'Cipro': 'Ciprofloxacina',
+  'Enro': 'Enrofloxacina',
+  'Marbo': 'Marbofloxacina',
+  'Marboflox': 'Marbofloxacina',
+  'Marbofloxacina': 'Marbofloxacina',
+  'Enrofloxacina': 'Enrofloxacina',
+  
+  // Sulfonamidas variations
   'TMP-SMX': 'Trimetoprim + Sulfa',
+  'TMP/SMX': 'Trimetoprim + Sulfa',
   'TMS': 'Trimetoprim + Sulfa',
   'Trimetoprim-Sulfonamida': 'Trimetoprim + Sulfa',
   'Trimetoprim + Sulfa': 'Trimetoprim + Sulfa',
   'Trimetoprim/Sulfa': 'Trimetoprim + Sulfa',
+  'Sulfa': 'Trimetoprim + Sulfa',
+  
+  // Aminoglicosídeos
   'Gentamicina': 'Gentamicina (parenteral)',
+  'Genta': 'Gentamicina (parenteral)',
+  'Amicacina': 'Amicacina (parenteral)',
+  'Tobramicina': 'Tobramicina',
+  
+  // Ampicilina + Sulbactam variations
   'Ampicilina/Sulbactam': 'Ampicilina + Sulbactam',
   'Ampi/Sulba': 'Ampicilina + Sulbactam',
   'Ampicilina + Sulbactam': 'Ampicilina + Sulbactam',
+  'Ampicilina-Sulbactam': 'Ampicilina + Sulbactam',
   'Sulbactam': 'Ampicilina + Sulbactam',
-  'Enrofloxacina': 'Enrofloxacina',
-  'Marbofloxacina': 'Marbofloxacina',
-  'Marbo': 'Marbofloxacina',
+  
+  // Lincosamidas
   'Clindamicina': 'Clindamicina',
+  'Clinda': 'Clindamicina',
+  
+  // Tetraciclinas
   'Doxiciclina': 'Doxiciclina',
   'Doxi': 'Doxiciclina',
+  'Minociclina': 'Minociclina',
+  'Oxitetraciclina': 'Oxitetraciclina',
+  
+  // Anaeróbios
   'Metronidazol': 'Metronidazol',
+  'Metro': 'Metronidazol',
+  
+  // Macrolídeos
   'Azitromicina': 'Azitromicina',
+  'Tilosina': 'Tilosina',
+  
+  // Cefalosporinas
   'Cefpodoxima': 'Cefpodoxima',
   'Cefalexina': 'Cefalexina',
-  'Tobramicina': 'Tobramicina',
-  'Cloranfenicol': 'Cloranfenicol',
-  'Tilosina': 'Tilosina',
-  'Oxitetraciclina': 'Oxitetraciclina',
   'Ceftriaxona': 'Ceftriaxona (IV)',
   'Ceftriaxona (IV)': 'Ceftriaxona (IV)',
-  'Minociclina': 'Minociclina',
-  'Penicilina G': 'Penicilina G',
+  'Cefovecina': 'Cefovecina (Convenia®)',
+  'Convenia': 'Cefovecina (Convenia®)',
+  
+  // Anfenicóis  
+  'Cloranfenicol': 'Cloranfenicol',
+  'Florfenicol': 'Florfenicol',
+  
+  // Carbapenêmicos
   'Meropenem': 'Meropenem',
-  'Imipenem-Cilastatina': 'Imipenem-Cilastatina',
+  'Imipenem-Cilastatina': 'Imipenem + Cilastatina',
+  'Imipenem/Cilastatina': 'Imipenem + Cilastatina',
+  
+  // Others
+  'Penicilina G': 'Penicilina G',
   'Cefoxitina': 'Cefoxitina',
-  'Amicacina': 'Amicacina',
   'Neomicina': 'Neomicina',
   'Atovaquona': 'Atovaquona',
   'Pirimetamina': 'Pirimetamina',
@@ -1102,8 +1149,6 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Ampicilina Sodica': 'Ampicilina (IV)',
   'Pip+Tazo': 'Piperacilina + Tazobactam (IV)',
   'Pip Tazo': 'Piperacilina + Tazobactam (IV)',
-  'Marboflox': 'Marbofloxacina',
-  'Enro': 'Enrofloxacina',
   'Enroflox': 'Enrofloxacina',
   'Imipinem + Cilastatina': 'Imipenem + Cilastatina',
   'Imipinem-Cilastatina': 'Imipenem + Cilastatina',
@@ -1111,9 +1156,7 @@ export const NAME_ALIASES: { [key: string]: string } = {
   'Trimetropim/Sulfametoxazol': 'Trimetoprim + Sulfa',
   'Trimetropim-Sulfametoxazol': 'Trimetoprim + Sulfa',
   'Doxicic': 'Doxiciclina',
-  'Clinda': 'Clindamicina',
   'Clindamic': 'Clindamicina',
-  'Metro': 'Metronidazol',
   'Metronid': 'Metronidazol',
   'Azitro': 'Azitromicina',
   'Azitromic': 'Azitromicina',
