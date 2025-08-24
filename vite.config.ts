@@ -20,7 +20,12 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         target: 'es2015',
+        outDir: 'dist',
+        assetsDir: 'assets',
+        minify: 'esbuild',
+        sourcemap: false,
         rollupOptions: {
+          external: [],
           output: {
             manualChunks: {
               vendor: ['react', 'react-dom'],
@@ -28,6 +33,9 @@ export default defineConfig(({ mode }) => {
             }
           }
         }
+      },
+      esbuild: {
+        target: 'es2015'
       }
     };
 });
